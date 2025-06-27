@@ -1,0 +1,10 @@
+{
+  "name": "hello-tauri-webdriver",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "cargo run",
+    "start-release": "cargo run --release",
+    "icons": "npx @tauri-apps/cli icon icon.png"
+  }
+}
