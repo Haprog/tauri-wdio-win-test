@@ -6,17 +6,26 @@
     "start": "cargo run",
     "start-release": "cargo run --release",
     "icons": "npx @tauri-apps/cli icon icon.png",
-    "test": "wdio run ./wdio.conf.ts"
+    "test": "wdio run ./test/wdio.conf.ts"
   },
   "dependencies": {
-    "@wdio/cli": "^9.16.2"
+    "@wdio/cli": "^7.40.0"
   },
   "devDependencies": {
     "@testing-library/webdriverio": "^3.2.1",
     "@types/node": "^22.15.33",
-    "@wdio/local-runner": "^9.16.2",
-    "@wdio/mocha-framework": "^9.16.2",
-    "@wdio/spec-reporter": "^9.16.2",
+    "@wdio/local-runner": "^7.40.0",
+    "@wdio/mocha-framework": "^7.40.0",
+    "@wdio/spec-reporter": "^7.40.0",
+    "@wdio/types": "^7.40.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "webdriverio": "^7.40.0",
     "wdio-wait-for": "^3.1.0"
+  },
+  "overrides": {
+    "@wdio/types": {
+      "typescript": "$typescript"
+    }
   }
 }
