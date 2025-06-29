@@ -40,13 +40,14 @@ jobs:
           node-version: 22
           cache: "npm"
 
-      # install our Node.js dependencies with npm
       - name: npm install
         run: npm install --frozen-lockfile
 
-      # install the latest version of Edge WebView2
-      - name: Install latest Edge WebView2
-        run: winget install --id=Microsoft.EdgeWebView2Runtime -e --accept-package-agreements --accept-source-agreements --disable-interactivity
+      - name: Install Edge WebView2
+        run: winget install --id=Microsoft.EdgeWebView2Runtime -v 138.0.3351.55 -e --accept-package-agreements --accept-source-agreements --disable-interactivity
+
+      - name: Install Edge WebDriver
+        run: winget install --id=Microsoft.EdgeDriver -v 138.0.3351.55 -e --accept-package-agreements --accept-source-agreements --disable-interactivity
 
       # install the latest version of `tauri-driver`.
       # note: the tauri-driver version is independent of any other Tauri versions
