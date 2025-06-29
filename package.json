@@ -1,7 +1,8 @@
 {
-  "name": "hello-tauri-webdriver",
+  "name": "tauri-wdio-win-test",
   "version": "0.0.1",
   "private": true,
+  "license": "Unlicense",
   "scripts": {
     "start": "cargo run",
     "start-release": "cargo run --release",
