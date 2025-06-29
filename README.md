@@ -11,3 +11,36 @@ This repository contains a minimal Tauri v2 app and an example end-to-end test f
 ### Issues with recent versions of WebdriverIO
 
 At first I tried to setup the WebdriverIO config from scratch using the instructions [here](https://tauri.app/develop/tests/webdriver/example/webdriverio/#initializing-a-webdriverio-project) under the collapsed section titled "Click me if you want to see how to set a project up from scratch" but I ran into hard issues using the latest version of WebdriverIO (`@wdio/*` packages) and I could not find any way to make it work. I think the main issues was the combination of recent WebdriverIO with `tauri-driver`, but the issue could have been something else too. I had to downgrade to WebdriverIO v7 to make it work and had to figure out the typings for `wdio.config.ts` to make TypeScript happy.
+
+## Development
+
+### Prerequisites
+
+1. See [Tauri Prerequisites](https://tauri.app/start/prerequisites/#windows) (Rust, Node.js).
+
+2. Install `tauri-driver` (see [Tauri WebDriver docs](https://tauri.app/develop/tests/webdriver/#system-dependencies)).
+
+```shell
+cargo install tauri-driver --locked
+```
+
+3. Make sure you have matching versions of [Edge WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section) and [Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) installed. Recent versions of Windows should have Edge WebView2 installed but it might not be updated to the latest version automatically even if there has been a recent new release of Edge or Edge WebDriver. You can manually update to the latest WebView2 version if needed (see the link above). If the versions don't match the tests will most likely fail with weird errors.
+
+### Run the tests
+
+```shell
+npm test
+```
+
+## Related links
+
+### Documentation
+
+- Tauri v2: [Develop / Tests](https://tauri.app/develop/tests/)
+- [WebdriverIO v7](https://v7.webdriver.io/docs/gettingstarted)
+- [GitHub Actions Runner Images](https://github.com/actions/runner-images)
+
+### Issues
+
+- https://github.com/tauri-apps/tauri/issues/10670
+- https://github.com/tauri-apps/tauri/issues/9203
