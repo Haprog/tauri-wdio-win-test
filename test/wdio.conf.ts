@@ -25,6 +25,7 @@ export const config: CustomConfig = {
   // ====================
   // Runner Configuration
   // ====================
+  runner: "local",
   //
   //
   //
