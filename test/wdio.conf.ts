@@ -82,7 +82,7 @@ export const config: CustomConfig = {
       // browserName: "chrome",
       // acceptInsecureCerts: true,
       "tauri:options": {
-        application: "target/release/hello-tauri-webdriver.exe",
+        application: "target/release/hello-tauri-webdriver",
         webviewOptions: {},
       },
       // If outputDir is provided WebdriverIO can capture driver session logs
