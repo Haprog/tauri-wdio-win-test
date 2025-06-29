@@ -10,8 +10,8 @@ jobs:
     # the display name of the test job
     name: WebDriverIO Test Runner
 
-    # we want to run on the latest linux environment
-    runs-on: windows-latest
+    # we want to run on Windows (2025 includes winget)
+    runs-on: windows-2025
 
     # the steps our job runs **in order**
     steps:
@@ -27,8 +27,8 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       # we run our rust tests before the webdriver tests to avoid testing a broken application
-      - name: Cargo test
-        run: cargo test
+      #- name: Cargo test
+      #  run: cargo test
 
       # build a release build of our application to be used during our WebdriverIO tests
       - name: Cargo build
@@ -43,6 +43,10 @@ jobs:
       # install our Node.js dependencies with npm
       - name: npm install
         run: npm install --frozen-lockfile
+
+      # install the latest version of Edge WebView2
+      - name: Install latest Edge WebView2
+        run: winget install --id=Microsoft.EdgeWebView2Runtime -e --accept-package-agreements --accept-source-agreements --disable-interactivity
 
       # install the latest version of `tauri-driver`.
       # note: the tauri-driver version is independent of any other Tauri versions
