@@ -26,19 +26,6 @@ jobs:
         id: rust-toolchain
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Cache cargo dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.cargo/bin/
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-            frontend/apps/ika-client/src-tauri/target/
-          key: cargo-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: |
-            cargo-        
-
       # we run our rust tests before the webdriver tests to avoid testing a broken application
       #- name: Cargo test
       #  run: cargo test
@@ -67,8 +54,12 @@ jobs:
       - name: Install tauri-driver
         run: cargo install tauri-driver --locked
 
+      - name: Install wait-on
+        run: |
+          pnpm add -g wait-on        
+
       - name: Start tauri-driver
-        run: tauri-driver --port 4444        
+        run: tauri-driver --port 4444 & wait-on tcp:8000
 
       # run the WebdriverIO test suite.
       - name: WebdriverIO
