@@ -3,6 +3,8 @@ on: [push]
 
 # the name of our workflow
 name: WebDriver
+env:
+  EDGE_VERSION: 138.0.3351.55
 
 jobs:
   # a single job named test
@@ -44,10 +46,10 @@ jobs:
         run: npm install --frozen-lockfile
 
       - name: Install Edge WebView2
-        run: winget install --id=Microsoft.EdgeWebView2Runtime -v 138.0.3351.55 -e --accept-package-agreements --accept-source-agreements --disable-interactivity
+        run: winget install --id=Microsoft.EdgeWebView2Runtime -v {{ env.EDGE_VERSION }} -e --accept-package-agreements --accept-source-agreements --disable-interactivity
 
       - name: Install Edge WebDriver
-        run: winget install --id=Microsoft.EdgeDriver -v 138.0.3351.55 -e --accept-package-agreements --accept-source-agreements --disable-interactivity
+        run: winget install --id=Microsoft.EdgeDriver -v {{ env.EDGE_VERSION }} -e --accept-package-agreements --accept-source-agreements --disable-interactivity
 
       # install the latest version of `tauri-driver`.
       # note: the tauri-driver version is independent of any other Tauri versions
