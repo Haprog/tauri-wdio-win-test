@@ -59,7 +59,7 @@ jobs:
           npm add -g wait-on        
 
       - name: Start tauri-driver
-        run: tauri-driver --port 4444 & wait-on tcp:8000
+        run: tauri-driver --port 4444 & wait-on tcp:4444
 
       # run the WebdriverIO test suite.
       - name: WebdriverIO
