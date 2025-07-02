@@ -56,7 +56,7 @@ jobs:
 
       - name: Install wait-on
         run: |
-          pnpm add -g wait-on        
+          npm add -g wait-on        
 
       - name: Start tauri-driver
         run: tauri-driver --port 4444 & wait-on tcp:8000
