@@ -22,9 +22,8 @@ jobs:
       - name: Setup Microsoft C++ Build Tools
         uses: ilammy/msvc-dev-cmd@v1
 
-      - name: Setup Rust
-        id: rust-toolchain
-        uses: dtolnay/rust-toolchain@stable
+      - name: Setup Rust toolchain
+        uses: actions-rust-lang/setup-rust-toolchain@v1
 
       # we run our rust tests before the webdriver tests to avoid testing a broken application
       #- name: Cargo test
