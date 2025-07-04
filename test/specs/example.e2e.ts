@@ -26,6 +26,9 @@ describe("Hello Tauri", () => {
 
   it("should be easy on the eyes", async () => {
     const body = await $("body");
+
+    console.info('HTML IS', await body.getHTML());
+
     const backgroundColor = await body.getCSSProperty("background-color");
     expect(luma(backgroundColor.parsed.hex!)).toBeLessThan(100);
   });
